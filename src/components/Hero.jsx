@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import AlbinImage from '../assets/Albin.png'
 import './Hero.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -87,6 +88,11 @@ const Hero = ({ onHover, onLeave }) => {
 
   return (
     <section ref={heroRef} id="hero" className="hero">
+
+      {/* Subtle Profile Image */}
+      <div className="hero-subtle-image">
+        <img src={AlbinImage} alt="Albin" />
+      </div>
 
       {/* Top Bar */}
       <div className="hero-top-bar">

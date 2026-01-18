@@ -158,19 +158,30 @@ export const DotScreenShader = ({
   dotColor = '#FFFFFF', 
   bgColor = '#050505', 
   dotOpacity = 0.05,
-  gridSize = 60,
+  gridSize = 100,
   rotation = 0,
   style = {}
 }) => {
   const [isMobileDevice, setIsMobileDevice] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
     setIsMobileDevice(window.innerWidth < 768)
+    
+    // Scroll animation
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   // Reduce grid size on mobile for better performance
-  const optimizedGridSize = isMobileDevice ? Math.min(gridSize, 40) : gridSize
+  const optimizedGridSize = isMobileDevice ? Math.min(gridSize, 60) : gridSize
   const optimizedDpr = isMobileDevice ? 1 : Math.min(window.devicePixelRatio, 2)
+  
+  // Scroll-based rotation animation
+  const scrollRotation = rotation + (scrollY * 0.0003)
 
   return (
     <Canvas
@@ -197,7 +208,7 @@ export const DotScreenShader = ({
         bgColor={bgColor} 
         dotOpacity={dotOpacity}
         gridSize={optimizedGridSize}
-        rotation={rotation}
+        rotation={scrollRotation}
       />
     </Canvas>
   )

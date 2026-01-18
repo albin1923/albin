@@ -38,8 +38,8 @@ function App() {
               <DotScreenShader 
                 dotColor="#FFFFFF"
                 bgColor="#050505"
-                dotOpacity={0.05}
-                gridSize={60}
+                dotOpacity={0.04}
+                gridSize={120}
               />
             </div>
             <Navbar onHover={enterHover} onLeave={leaveHover} />
