@@ -1,0 +1,259 @@
+.experience {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.experience-bg-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: moveLine 10s ease-in-out infinite;
+  animation-delay: var(--line-delay);
+}
+
+.bg-line:nth-child(1) { top: 20%; }
+.bg-line:nth-child(2) { top: 35%; }
+.bg-line:nth-child(3) { top: 50%; }
+.bg-line:nth-child(4) { top: 65%; }
+.bg-line:nth-child(5) { top: 80%; }
+
+@keyframes moveLine {
+  0%, 100% { transform: translateX(-100%); opacity: 0; }
+  50% { transform: translateX(0); opacity: 1; }
+}
+
+.experience-header {
+  margin-bottom: 80px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-progress {
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff, #a0a0a0);
+  border-radius: 1px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 50px 60px;
+}
+
+.timeline-item.left {
+  left: 0;
+  padding-right: 60px;
+}
+
+.timeline-item.right {
+  left: 50%;
+  padding-left: 60px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #0a0a0a;
+  border: 2px solid #a0a0a0;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.timeline-item.left .timeline-dot {
+  right: -10px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -10px;
+}
+
+.dot-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.timeline-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  transition: all 0.4s ease;
+}
+
+.timeline-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.company-icon {
+  color: #a0a0a0;
+}
+
+.company-name {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.card-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.role-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f8f9fa;
+  margin-bottom: 15px;
+}
+
+.card-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: rgba(248, 249, 250, 0.5);
+}
+
+.meta-item svg {
+  color: rgba(248, 249, 250, 0.3);
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: rgba(248, 249, 250, 0.7);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.card-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(248, 249, 250, 0.8);
+}
+
+.highlight-dot {
+  width: 5px;
+  height: 5px;
+  background: #a0a0a0;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px !important;
+    padding-right: 0 !important;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 10px;
+    right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-card {
+    padding: 25px;
+  }
+
+  .role-title {
+    font-size: 1.2rem;
+  }
+
+  .card-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
